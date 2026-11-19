@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VICE COVER — GTA 6-Style Cover Art Maker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="logo-area">
+      <h1>VICE COVER</h1>
+      <p>GTA 6-Style Multi-Panel Cover Art Generator</p>
+    </div>
+  </header>
+
+  <div class="main-container">
+    <div class="editor-sidebar">
+      <div class="section-group">
+        <label>1. Sample Photos (Try a sample)</label>
+        <div class="sample-chips">
+          <span class="sample-chip" data-src="samples/pier.jpg">Pier Sunset</span>
+          <span class="sample-chip" data-src="samples/boulevard.jpg">Boulevard</span>
+          <span class="sample-chip" data-src="samples/sunset.jpg">City Sunset</span>
+          <span class="sample-chip" data-src="samples/neon.jpg">Neon Street</span>
+        </div>
+      </div>
+
+      <div class="section-group">
+        <label>2. Upload Photo</label>
+        <label for="file-upload" class="file-upload-btn">Choose Image file</label>
+        <input type="file" id="file-upload" accept="image/*" style="display: none;">
+      </div>
+
+      <div class="section-group">
+        <label>3. Layout Grid</label>
+        <div class="btn-group">
+          <button class="layout-btn active" data-layout="1">1 Hero</button>
+          <button class="layout-btn" data-layout="2">2 Split</button>
+          <button class="layout-btn" data-layout="3">3 Triptych</button>
+          <button class="layout-btn" data-layout="4">4 Grid</button>
+        </div>
+      </div>
+
+      <div class="section-group">
+        <label>4. Canvas Size Preset</label>
+        <div class="btn-group">
+          <button class="size-btn active" data-size="square">1080x1080</button>
+          <button class="size-btn" data-size="portrait">1080x1350</button>
+          <button class="size-btn" data-size="wide">1920x1080</button>
+        </div>
+      </div>
+
+      <div class="section-group">
+        <label>5. Vice City Grade</label>
+        <select id="select-grade">
+          <option value="sunset">Sunset Hot Pink / Orange</option>
+          <option value="neon">Neon Cyan / Purple</option>
+          <option value="noir">Noir High Contrast</option>
+          <option value="pastel">Pastel Dream</option>
+        </select>
+        <label style="margin-top: 4px;">Grade Intensity</label>
+        <input type="range" id="input-intensity" min="0" max="1" step="0.05" value="1.0">
+      </div>
+
+      <div class="section-group">
+        <label>6. Panel Zoom</label>
+        <input type="range" id="input-zoom" min="0.5" max="3.0" step="0.05" value="1.0">
+      </div>
+
+      <div class="section-group">
+        <label>7. Title & Lettering</label>
+        <input type="text" id="input-title" placeholder="COVER TITLE">
+        <input type="text" id="input-subtitle" placeholder="TAGLINE / SUBTITLE" style="margin-top: 6px;">
+        <div class="color-row" style="margin-top: 8px;">
+          <input type="color" id="input-color" value="#ffffff" title="Title Color">
+          <div style="flex:1; display:flex; flex-direction:column; gap:2px;">
+            <label style="font-size:10px;">Font Size</label>
+            <input type="range" id="input-fontsize" min="40" max="160" value="92">
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:8px; margin-top:6px;">
+          <input type="checkbox" id="input-outline" checked>
+          <label for="input-outline" style="font-size:12px; cursor:pointer;">Thick Black Outline</label>
+        </div>
+      </div>
+
+      <button id="btn-export" class="btn-export-main">Export PNG Cover</button>
+    </div>
+
+    <div class="preview-area" id="preview-container">
+      <canvas id="preview-canvas"></canvas>
+    </div>
+  </div>
+
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>

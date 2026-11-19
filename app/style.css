@@ -1,0 +1,271 @@
+/* VICE COVER - Deep Purple Night Vice City Theme */
+
+@font-face {
+  font-family: 'Anton';
+  src: url('fonts/Anton.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Archivo Black';
+  src: url('fonts/ArchivoBlack.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: #0c051a;
+  color: #f3e8ff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+header {
+  background: linear-gradient(135deg, #1e073a 0%, #0c051a 100%);
+  border-bottom: 2px solid #db2777;
+  padding: 14px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+  height: 65px;
+}
+
+.logo-area h1 {
+  font-family: 'Anton', sans-serif;
+  font-size: 26px;
+  letter-spacing: 2px;
+  background: linear-gradient(to right, #f472b6, #fb923c, #06b6d4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+}
+
+.logo-area p {
+  font-size: 11px;
+  color: #a78bfa;
+  letter-spacing: 1px;
+}
+
+.main-container {
+  display: flex;
+  flex: 1;
+  height: calc(100vh - 65px);
+  overflow: hidden;
+}
+
+.editor-sidebar {
+  width: 380px;
+  background: #150928;
+  border-right: 1px solid #2e1065;
+  padding: 16px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+.section-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.section-group label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #c084fc;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+input[type="text"], select {
+  background: #230d42;
+  border: 1px solid #7c3aed;
+  border-radius: 6px;
+  color: #ffffff;
+  padding: 8px 10px;
+  font-size: 13px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+input[type="text"]:focus, select:focus {
+  border-color: #db2777;
+}
+
+.btn-group {
+  display: flex;
+  gap: 6px;
+}
+
+button, .file-upload-btn {
+  background: #230d42;
+  border: 1px solid #7c3aed;
+  color: #f3e8ff;
+  padding: 7px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: center;
+  flex: 1;
+}
+
+button:hover, .file-upload-btn:hover {
+  background: #7c3aed;
+  color: #ffffff;
+}
+
+button.active {
+  background: #db2777;
+  border-color: #f472b6;
+  color: #ffffff;
+}
+
+.sample-chips {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.sample-chip {
+  background: #2e1065;
+  border: 1px solid #a855f7;
+  padding: 5px 8px;
+  font-size: 11px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.sample-chip:hover {
+  background: #db2777;
+}
+
+.preview-area {
+  flex: 1;
+  background: #090214;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  overflow: auto;
+  position: relative;
+}
+
+#preview-container {
+  box-shadow: 0 15px 40px rgba(0,0,0,0.8);
+  border-radius: 4px;
+  overflow: hidden;
+  max-height: 100%;
+  max-width: 100%;
+  display: flex;
+}
+
+#preview-canvas {
+  display: block;
+  max-width: 100%;
+  max-height: calc(720px - 100px);
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.btn-export-main {
+  background: linear-gradient(135deg, #db2777 0%, #ea580c 100%);
+  color: white;
+  border: none;
+  padding: 12px;
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 15px rgba(219, 39, 119, 0.4);
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+
+.btn-export-main:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(219, 39, 119, 0.6);
+}
+
+input[type="range"] {
+  accent-color: #db2777;
+}
+
+.color-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+input[type="color"] {
+  -webkit-appearance: none;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  cursor: pointer;
+  background: none;
+}
+
+input[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+input[type="color"]::-webkit-color-swatch {
+  border: 1px solid #7c3aed;
+  border-radius: 6px;
+}
+
+/* Cover Mode / Shot Mode overrides */
+body.shot-cover-mode header,
+body.shot-cover-mode .editor-sidebar {
+  display: none !important;
+}
+body.shot-cover-mode .main-container {
+  height: 100vh !important;
+  border: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+body.shot-cover-mode .preview-area {
+  padding: 0 !important;
+  background: #090214 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  overflow: hidden !important;
+}
+body.shot-cover-mode #preview-container {
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  max-height: 100vh !important;
+  max-width: 100vw !important;
+  width: 100% !important;
+  height: 100% !important;
+  margin: 0 !important;
+}
+body.shot-cover-mode #preview-canvas {
+  max-height: 100vh !important;
+  max-width: 100vw !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+}
