@@ -1,18 +1,18 @@
 [
   {
     "file": "1-cover.jpg",
-    "url": "http://localhost:8080/?shot=cover&photo=boulevard&caption=VICE%20CITY&layout=2&grade=sunset&size=square"
+    "url": "http://localhost:8080/?shot=cover&photos=crew,heroine,boss,rider&caption=VICE%20ROYALE&subtitle=kings%20of%20the%20coast&layout=4&grade=golden-hour&size=square&slanted=true"
   },
   {
     "file": "2-editor.jpg",
-    "url": "http://localhost:8080/?shot=editor&photo=pier&caption=Sunset%20Heist&layout=2&grade=sunset&size=square"
+    "url": "http://localhost:8080/?shot=editor&photo=heroine&caption=VICE%20ROYALE&layout=2&grade=golden-hour"
   },
   {
     "file": "3-cover-portrait.jpg",
-    "url": "http://localhost:8080/?shot=cover&photo=boulevard&caption=Neon%20Nights&layout=3&grade=neon&size=portrait"
+    "url": "http://localhost:8080/?shot=cover&photo=heroine&caption=VELVET%20SUNSET&subtitle=she%20runs%20this%20town&layout=1&grade=golden-hour&size=portrait"
   },
   {
     "file": "4-cover-wide.jpg",
-    "url": "http://localhost:8080/?shot=cover&photo=sunset&caption=Ocean%20Drive&layout=4&grade=sunset&size=wide"
+    "url": "http://localhost:8080/?shot=cover&photos=boss,rider&caption=MIDNIGHT%20COAST&subtitle=ride%20or%20nothing&layout=2&grade=golden-hour&size=wide&slanted=true"
   }
 ]

@@ -1,1 +1,3 @@
 Copyright (c) Font Authors. Licensed under the SIL Open Font License, Version 1.1.
+Bundled with VICE COVER under the terms of the SIL Open Font License v1.1.
+-- Archivo Black is bundled with VICE COVER (gta6-cover-art-01) under the SIL Open Font License 1.1.

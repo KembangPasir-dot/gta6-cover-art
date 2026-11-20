@@ -1,7 +1,7 @@
 // VICE COVER — GTA 6-style multi-panel cover art maker bounty entry for make.fun (gta6-cover-art-01).
-// Built with a deep purple night UI, Vice City sunset grades, multi-panel poster grid, crop/pan/zoom,
-// and OFL typography (Anton + Archivo Black). Runs fully offline via Node 22 stdlib.
-// Polished and verified deterministic on November 19, 2026.
+// Stage 7 rework: fixes poster layout collisions, adds Yellowtail script subtitles and original text,
+// and configures four scenes to re-shoot. Runs fully offline via the Node 22 standard library.
+// Anton and Archivo Black are under the SIL Open Font License 1.1; Yellowtail is under Apache 2.0.
 //
 // Serve it locally with `node serve.ts`, then open http://localhost:8080.
 // Outside the grader's container, MAKEFUN_OUTPUT_DIR stands in for /output:

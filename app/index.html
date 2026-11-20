@@ -18,8 +18,12 @@
   <div class="main-container">
     <div class="editor-sidebar">
       <div class="section-group">
-        <label>1. Sample Photos (Try a sample)</label>
+        <label>1. Sample Photos (People & Scenes)</label>
         <div class="sample-chips">
+          <span class="sample-chip" data-src="samples/crew.jpg">👥 Crew</span>
+          <span class="sample-chip" data-src="samples/heroine.jpg">🏎️ Heroine</span>
+          <span class="sample-chip" data-src="samples/boss.jpg">🏙️ Boss</span>
+          <span class="sample-chip" data-src="samples/rider.jpg">🏍️ Rider</span>
           <span class="sample-chip" data-src="samples/pier.jpg">Pier Sunset</span>
           <span class="sample-chip" data-src="samples/boulevard.jpg">Boulevard</span>
           <span class="sample-chip" data-src="samples/sunset.jpg">City Sunset</span>
@@ -28,18 +32,28 @@
       </div>
 
       <div class="section-group">
-        <label>2. Upload Photo</label>
-        <label for="file-upload" class="file-upload-btn">Choose Image file</label>
+        <label>2. Upload Photo (Target Active Panel)</label>
+        <div class="panel-selector">
+          <button class="panel-btn active" data-panel="0">Panel 1</button>
+          <button class="panel-btn" data-panel="1">Panel 2</button>
+          <button class="panel-btn" data-panel="2">Panel 3</button>
+          <button class="panel-btn" data-panel="3">Panel 4</button>
+        </div>
+        <label for="file-upload" class="file-upload-btn">Choose Image for Active Panel</label>
         <input type="file" id="file-upload" accept="image/*" style="display: none;">
       </div>
 
       <div class="section-group">
-        <label>3. Layout Grid</label>
+        <label>3. Layout Grid & Slant</label>
         <div class="btn-group">
           <button class="layout-btn active" data-layout="1">1 Hero</button>
           <button class="layout-btn" data-layout="2">2 Split</button>
           <button class="layout-btn" data-layout="3">3 Triptych</button>
           <button class="layout-btn" data-layout="4">4 Grid</button>
+        </div>
+        <div style="display:flex; align-items:center; gap:8px; margin-top:6px;">
+          <input type="checkbox" id="input-slanted">
+          <label for="input-slanted" style="font-size:12px; cursor:pointer;">Slanted Accent Panels</label>
         </div>
       </div>
 
@@ -53,8 +67,9 @@
       </div>
 
       <div class="section-group">
-        <label>5. Vice City Grade</label>
+        <label>5. Color Grade</label>
         <select id="select-grade">
+          <option value="golden-hour" selected>Golden Hour (Default)</option>
           <option value="sunset">Sunset Hot Pink / Orange</option>
           <option value="neon">Neon Cyan / Purple</option>
           <option value="noir">Noir High Contrast</option>
@@ -65,25 +80,41 @@
       </div>
 
       <div class="section-group">
-        <label>6. Panel Zoom</label>
+        <label>6. Active Panel Zoom</label>
         <input type="range" id="input-zoom" min="0.5" max="3.0" step="0.05" value="1.0">
       </div>
 
       <div class="section-group">
-        <label>7. Title & Lettering</label>
-        <input type="text" id="input-title" placeholder="COVER TITLE">
-        <input type="text" id="input-subtitle" placeholder="TAGLINE / SUBTITLE" style="margin-top: 6px;">
+        <label>7. Title & Subtitle</label>
+        <input type="text" id="input-title" placeholder="COVER TITLE" value="VICE ROYALE">
+        <input type="text" id="input-subtitle" placeholder="SCRIPT SUBTITLE" value="kings of the coast" style="margin-top: 6px;">
         <div class="color-row" style="margin-top: 8px;">
           <input type="color" id="input-color" value="#ffffff" title="Title Color">
           <div style="flex:1; display:flex; flex-direction:column; gap:2px;">
             <label style="font-size:10px;">Font Size</label>
-            <input type="range" id="input-fontsize" min="40" max="160" value="92">
+            <input type="range" id="input-fontsize" min="60" max="160" value="110">
           </div>
         </div>
         <div style="display:flex; align-items:center; gap:8px; margin-top:6px;">
           <input type="checkbox" id="input-outline" checked>
           <label for="input-outline" style="font-size:12px; cursor:pointer;">Thick Black Outline</label>
         </div>
+      </div>
+
+      <div class="section-group">
+        <label>8. Poster Furniture Toggles & Text</label>
+        <div class="furniture-grid">
+          <label><input type="checkbox" id="input-stars" checked> Stars</label>
+          <label><input type="checkbox" id="input-vol" checked> VOL. Label</label>
+          <label><input type="checkbox" id="input-tagline" checked> Tagline Strip</label>
+          <label><input type="checkbox" id="input-seal" checked> Round Seal</label>
+          <label><input type="checkbox" id="input-barcode" checked> Barcode</label>
+          <label><input type="checkbox" id="input-billing" checked> Billing Block</label>
+          <label><input type="checkbox" id="input-cast" checked> Cast Tags</label>
+        </div>
+        <input type="text" id="input-taglinetext" placeholder="Tagline text" value="FIVE FRIENDS · ONE CITY · ONE LAST JOB" style="margin-top:6px;">
+        <input type="text" id="input-sealtext" placeholder="Seal text" value="VICE COVER · ORIGINAL ART" style="margin-top:6px;">
+        <input type="text" id="input-billingtext" placeholder="Billing text" value="A VICE COVER PRODUCTION — STARRING YOU" style="margin-top:6px;">
       </div>
 
       <button id="btn-export" class="btn-export-main">Export PNG Cover</button>

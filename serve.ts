@@ -1,5 +1,6 @@
 // A tiny static server for app/ (Node 22, standard library only), so an entry can be tried
 // locally without a build step: `node serve.ts` serves app/ on http://localhost:8080.
+// Serves the Stage 7 rework, including the local Yellowtail font.
 // It sends the MIME types an offline web app needs, refuses any path outside app/, and otherwise
 // does nothing clever: this is a development convenience, not a web server for the internet.
 import { createReadStream, statSync } from 'node:fs';

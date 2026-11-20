@@ -1,11 +1,17 @@
-// VICE COVER - Photo Grading & Canvas Effects (Gradient Map, Halftone, Grain, Vignette)
+// VICE COVER - Photo Grading & Canvas Effects (Golden Hour Default, Gradient Map, Halftone, Grain, Vignette)
+// Stage 7 keeps golden-hour as the default for the editor and cover shots.
 
-export function applyGrade(ctx, width, height, preset = 'sunset', intensity = 1.0) {
+export function applyGrade(ctx, width, height, preset = 'golden-hour', intensity = 1.0) {
   const imgData = ctx.getImageData(0, 0, width, height);
   const data = imgData.data;
 
   // Presets mapping: [shadowRGB, midRGB, highlightRGB]
   const presets = {
+    'golden-hour': {
+      shadow: [45, 18, 30],     // warm rich shadow
+      mid: [220, 120, 45],      // warm amber / gold
+      high: [255, 210, 120]     // bright golden sunlight
+    },
     sunset: {
       shadow: [15, 5, 35],     // deep indigo night
       mid: [219, 39, 119],      // hot pink / magenta
@@ -28,7 +34,7 @@ export function applyGrade(ctx, width, height, preset = 'sunset', intensity = 1.
     }
   };
 
-  const p = presets[preset] || presets.sunset;
+  const p = presets[preset] || presets['golden-hour'];
 
   for (let i = 0; i < data.length; i += 4) {
     let r = data[i];
@@ -37,7 +43,7 @@ export function applyGrade(ctx, width, height, preset = 'sunset', intensity = 1.
 
     // Contrast & Saturation boost
     let lum = 0.299 * r + 0.587 * g + 0.114 * b;
-    lum = ((lum - 128) * 1.25) + 128;
+    lum = ((lum - 128) * 1.3) + 128;
     lum = Math.max(0, Math.min(255, lum));
 
     let t = lum / 255;
@@ -63,7 +69,7 @@ export function applyGrade(ctx, width, height, preset = 'sunset', intensity = 1.
 
   ctx.putImageData(imgData, 0, 0);
 
-  // Apply Vignette
+  // Apply Vignette & Warm Glow
   if (intensity > 0) {
     addVignette(ctx, width, height, intensity);
   }
@@ -75,9 +81,9 @@ export function addVignette(ctx, width, height, intensity = 1.0) {
     width / 2, height / 2, Math.min(width, height) * 0.3,
     width / 2, height / 2, Math.max(width, height) * 0.75
   );
-  grad.addColorStop(0, 'rgba(0,0,0,0)');
-  grad.addColorStop(0.7, `rgba(15, 5, 30, ${0.4 * intensity})`);
-  grad.addColorStop(1, `rgba(10, 2, 20, ${0.85 * intensity})`);
+  grad.addColorStop(0, 'rgba(255,180,50,0.05)');
+  grad.addColorStop(0.7, `rgba(45, 15, 30, ${0.4 * intensity})`);
+  grad.addColorStop(1, `rgba(20, 5, 15, ${0.85 * intensity})`);
   ctx.fillStyle = grad;
   ctx.fillRect(0, 0, width, height);
   ctx.restore();

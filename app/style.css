@@ -16,6 +16,14 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'Yellowtail';
+  src: url('fonts/Yellowtail.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -26,6 +34,7 @@ body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   background-color: #0c051a;
   color: #f3e8ff;
+  height: 100vh;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -61,20 +70,22 @@ header {
 
 .main-container {
   display: flex;
-  flex: 1;
+  flex: 1 1 auto;
   height: calc(100vh - 65px);
+  max-height: calc(100vh - 65px);
+  min-height: 0;
   overflow: hidden;
 }
 
 .editor-sidebar {
-  width: 380px;
+  width: 390px;
   background: #150928;
   border-right: 1px solid #2e1065;
   padding: 16px;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 14px;
   flex-shrink: 0;
 }
 
@@ -107,12 +118,12 @@ input[type="text"]:focus, select:focus {
   border-color: #db2777;
 }
 
-.btn-group {
+.btn-group, .panel-selector {
   display: flex;
   gap: 6px;
 }
 
-button, .file-upload-btn {
+button, .file-upload-btn, .panel-btn {
   background: #230d42;
   border: 1px solid #7c3aed;
   color: #f3e8ff;
@@ -126,12 +137,12 @@ button, .file-upload-btn {
   flex: 1;
 }
 
-button:hover, .file-upload-btn:hover {
+button:hover, .file-upload-btn:hover, .panel-btn:hover {
   background: #7c3aed;
   color: #ffffff;
 }
 
-button.active {
+button.active, .panel-btn.active {
   background: #db2777;
   border-color: #f472b6;
   color: #ffffff;
@@ -155,6 +166,24 @@ button.active {
 
 .sample-chip:hover {
   background: #db2777;
+}
+
+.furniture-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6px;
+  font-size: 11px;
+  color: #d8b4fe;
+}
+
+.furniture-grid label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  text-transform: none;
+  color: #f3e8ff;
 }
 
 .preview-area {
@@ -242,30 +271,26 @@ body.shot-cover-mode .editor-sidebar {
 }
 body.shot-cover-mode .main-container {
   height: 100vh !important;
+  max-height: 100vh !important;
   border: none !important;
   margin: 0 !important;
   padding: 0 !important;
 }
 body.shot-cover-mode .preview-area {
   padding: 0 !important;
-  background: #090214 !important;
-  width: 100vw !important;
-  height: 100vh !important;
-  overflow: hidden !important;
 }
+/* Stage 7: in cover-shot mode the canvas must fill the viewport 1:1 (the
+   screenshot viewport always matches the canvas size), not sit at the
+   620px editor preview cap in the middle of dark space. */
 body.shot-cover-mode #preview-container {
+  max-height: 100vh !important;
+  max-width: 100vw !important;
   box-shadow: none !important;
   border-radius: 0 !important;
-  max-height: 100vh !important;
-  max-width: 100vw !important;
-  width: 100% !important;
-  height: 100% !important;
-  margin: 0 !important;
 }
 body.shot-cover-mode #preview-canvas {
-  max-height: 100vh !important;
   max-width: 100vw !important;
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: contain !important;
+  max-height: 100vh !important;
+  width: 100vw !important;
+  height: 100vh !important;
 }
